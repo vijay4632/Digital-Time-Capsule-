@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Time Locked Messages</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 40px;
+        }
+
+        .box {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        input, textarea, button {
+            width: 100%;
+            margin: 6px 0;
+            padding: 8px;
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Save Message</h2>
+
+    <form action="/messages" method="post">
+        <input type="text" name="key" placeholder="Message key (a / b / c / d)" required>
+
+        <textarea name="message" placeholder="Enter message" required></textarea>
+
+        <input type="datetime-local" name="time" required>
+
+        <button type="submit">Save</button>
+    </form>
+</div>
+
+<br>
+
+<div class="box">
+    <h2>Open Message</h2>
+
+    <form action="/messages/" method="get">
+        <input type="text" name="key" placeholder="Enter key (a / b / c / d)" required>
+        <button type="submit">Open</button>
+    </form>
+</div>
+
+</body>
+</html>
